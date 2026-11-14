@@ -79,4 +79,37 @@ def clean(text: str) -> str:
 
 if __name__ == "__main__":
     data = sys.stdin.read() if len(sys.argv) == 1 else open(sys.argv[1], encoding="utf-8").read()
-    sys.stdout.write(clean(data))Find and remove invisible AI watermarks from ChatGPT, Claude and Gemini text.
+    sys.stdout.write(clean(data))Find and remove invisible AI watermarks from ChatGPT, Claude and Gemini text ```
+## FAQ
+
+**Does this remove the AI watermark for good?**
+
+It removes the character-level traces — zero-width characters, exotic spaces, bidi controls and tag characters. It does not and cannot prove how a text was produced, and statistical detectors that score word choice will still see what they see.
+
+**Is my text sent anywhere?**
+
+No. The cleaning runs in your browser. Nothing is uploaded and nothing is logged.
+
+**Which models does it cover?**
+
+ChatGPT, Claude, Gemini and DeepSeek all insert invisible characters in some copy paths. The tool does not care which model produced the text.
+
+**Will this change my wording?**
+
+No. Only invisible code points and exotic spaces are touched. Letters, punctuation, line breaks and formatting survive as they are.
+
+**Why does my text look identical before and after?**
+
+Because the characters removed have no width — that is the entire problem. Compare the byte length before and after to see the difference.
+
+## Links
+
+- Clean text online: https://www.textwipes.com/tools/clean-chatgpt-text
+- Claude version: https://www.textwipes.com/tools/claude-invisible-character-remover
+- Gemini version: https://www.textwipes.com/tools/wipe-gemini-watermark
+- DeepSeek version: https://www.textwipes.com/tools/wipe-deepseek-watermark
+- File metadata explainer: https://www.textwipes.com/tools/remove-ai-text-watermark
+
+## License
+
+MIT. The cleaning logic above is yours to copy into your own project.
