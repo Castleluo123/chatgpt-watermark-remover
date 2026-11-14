@@ -79,7 +79,8 @@ def clean(text: str) -> str:
 
 if __name__ == "__main__":
     data = sys.stdin.read() if len(sys.argv) == 1 else open(sys.argv[1], encoding="utf-8").read()
-    sys.stdout.write(clean(data)) ```
+    sys.stdout.write(clean(data))
+```
 
 ## FAQ
 
